@@ -1,18 +1,19 @@
 # ====================================================================
 # 规则集名称: Google Antigravity & AI Developer Suite
+# 项目地址: https://github.com/Floatingcloud01/clash-rules-antigravity
 # 适用平台: Clash / Clash Verge Rev / Mihomo / ShellCrash
 # 维护格式: Classical (支持 DOMAIN, DOMAIN-SUFFIX, DOMAIN-KEYWORD)
 # ====================================================================
 payload:
   # ------------------------------------------------------------------
-  # 1. Antigravity 专有域名与灰度配置服务 (核心避坑：社区实测抓包端点)
+  # 1. Google Antigravity 专有服务与灰度分发
   # ------------------------------------------------------------------
   - DOMAIN-SUFFIX,antigravity.google
   - DOMAIN-SUFFIX,antigravity-unleash.goog
   - DOMAIN,antigravity-unleash.goog
 
   # ------------------------------------------------------------------
-  # 2. Google Cloud Code / AI 编码协同与实验接口 (后台 Agent 依赖)
+  # 2. Google Cloud Code / AI 编程 Agent 核心管道
   # ------------------------------------------------------------------
   - DOMAIN,cloudcode-pa.googleapis.com
   - DOMAIN,daily-cloudcode-pa.googleapis.com
@@ -20,29 +21,35 @@ payload:
   - DOMAIN,cloudaicompanion.googleapis.com
 
   # ------------------------------------------------------------------
-  # 3. Vertex AI 与企业级模型推理端点 (Agent 执行与推理通道)
+  # 3. Google DeepMind 与 AI 研发展示站
   # ------------------------------------------------------------------
+  - DOMAIN-SUFFIX,deepmind.google
+  - DOMAIN-SUFFIX,deepmind.com
+  - DOMAIN-SUFFIX,generativeai.google
+  - DOMAIN-SUFFIX,ai.google.dev
+
+  # ------------------------------------------------------------------
+  # 4. Gemini / MakerSuite / AI Studio 核心站点与工作台
+  # ------------------------------------------------------------------
+  - DOMAIN-SUFFIX,gemini.google.com
+  - DOMAIN-SUFFIX,bard.google.com
+  - DOMAIN-SUFFIX,aistudio.google.com
+  - DOMAIN-SUFFIX,makersuite.google.com
+  - DOMAIN-KEYWORD,gemini
+
+  # ------------------------------------------------------------------
+  # 5. 精准模型推理与数据交互接口 (精细化子域名，不污染通用 Google)
+  # ------------------------------------------------------------------
+  - DOMAIN,generativelanguage.googleapis.com
+  - DOMAIN,proactivebackend-pa.googleapis.com
+  - DOMAIN,alkalimakersuite-pa.clients6.google.com
+  - DOMAIN,alkalimakersuite-pa.googleapis.com
+  - DOMAIN-KEYWORD,alkalimakersuite
   - DOMAIN,aiplatform.googleapis.com
   - DOMAIN-SUFFIX,aiplatform.googleapis.com
 
   # ------------------------------------------------------------------
-  # 4. Google DeepMind 与 AI Studio (模型展示与开发套件)
-  # ------------------------------------------------------------------
-  - DOMAIN-SUFFIX,deepmind.google
-  - DOMAIN-SUFFIX,deepmind.com
-  - DOMAIN-SUFFIX,aistudio.google.com
-  - DOMAIN,aistudio.google.com
-
-  # ------------------------------------------------------------------
-  # 5. Gemini 核心语言模型推理与主动通信 API
-  # ------------------------------------------------------------------
-  - DOMAIN,generativelanguage.googleapis.com
-  - DOMAIN,proactivebackend-pa.googleapis.com
-  - DOMAIN,alkalimakersuite-pa.googleapis.com
-  - DOMAIN-KEYWORD,alkalimakersuite
-
-  # ------------------------------------------------------------------
-  # 6. 身份验证、OAuth 授权与动态配置更新
+  # 6. 认证授权与动态配置辅助端点
   # ------------------------------------------------------------------
   - DOMAIN,oauth2.googleapis.com
   - DOMAIN,firebaseremoteconfig.googleapis.com
