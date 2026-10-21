@@ -1,0 +1,49 @@
+# ====================================================================
+# 规则集名称: Google Antigravity & AI Developer Suite
+# 适用平台: Clash / Clash Verge Rev / Mihomo / ShellCrash
+# 维护格式: Classical (支持 DOMAIN, DOMAIN-SUFFIX, DOMAIN-KEYWORD)
+# ====================================================================
+payload:
+  # ------------------------------------------------------------------
+  # 1. Antigravity 专有域名与灰度配置服务 (核心避坑：社区实测抓包端点)
+  # ------------------------------------------------------------------
+  - DOMAIN-SUFFIX,antigravity.google
+  - DOMAIN-SUFFIX,antigravity-unleash.goog
+  - DOMAIN,antigravity-unleash.goog
+
+  # ------------------------------------------------------------------
+  # 2. Google Cloud Code / AI 编码协同与实验接口 (后台 Agent 依赖)
+  # ------------------------------------------------------------------
+  - DOMAIN,cloudcode-pa.googleapis.com
+  - DOMAIN,daily-cloudcode-pa.googleapis.com
+  - DOMAIN,cloudcode-experiments.googleapis.com
+  - DOMAIN,cloudaicompanion.googleapis.com
+
+  # ------------------------------------------------------------------
+  # 3. Vertex AI 与企业级模型推理端点 (Agent 执行与推理通道)
+  # ------------------------------------------------------------------
+  - DOMAIN,aiplatform.googleapis.com
+  - DOMAIN-SUFFIX,aiplatform.googleapis.com
+
+  # ------------------------------------------------------------------
+  # 4. Google DeepMind 与 AI Studio (模型展示与开发套件)
+  # ------------------------------------------------------------------
+  - DOMAIN-SUFFIX,deepmind.google
+  - DOMAIN-SUFFIX,deepmind.com
+  - DOMAIN-SUFFIX,aistudio.google.com
+  - DOMAIN,aistudio.google.com
+
+  # ------------------------------------------------------------------
+  # 5. Gemini 核心语言模型推理与主动通信 API
+  # ------------------------------------------------------------------
+  - DOMAIN,generativelanguage.googleapis.com
+  - DOMAIN,proactivebackend-pa.googleapis.com
+  - DOMAIN,alkalimakersuite-pa.googleapis.com
+  - DOMAIN-KEYWORD,alkalimakersuite
+
+  # ------------------------------------------------------------------
+  # 6. 身份验证、OAuth 授权与动态配置更新
+  # ------------------------------------------------------------------
+  - DOMAIN,oauth2.googleapis.com
+  - DOMAIN,firebaseremoteconfig.googleapis.com
+  - DOMAIN,firebaseinstallations.googleapis.com
