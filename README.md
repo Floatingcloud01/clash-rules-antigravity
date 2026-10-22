@@ -1,24 +1,26 @@
-# Google Antigravity & AI Developer Suite Clash Ruleset
+# Google Antigravity & AI Developer Suite Clash Ruleset (Full Edition)
 
-专为 **Google Antigravity**（IDE、CLI `agy`、后台 Agent）及 **Google Gemini / AI Studio** 深度定制的精细化 Clash / Mihomo 规则集。
+专为 **Google Antigravity**（IDE、CLI `agy`、后台自主 Agent）、**Google Jules**（AI 软件工程师）、**Google Gemini / AI Studio** 及全套开发生态深度定制的精细化 Clash / Mihomo 规则集。
 
 ---
 
-## 💡 为什么需要这个专用规则集？（与通用 Google 规则的关系）
+## 🚀 规则集整合亮点（工业级防断连）
 
-很多订阅自带的规则集中已经包含了通用的 `Google` 规则（收录了 `googleapis.com`、`gstatic.com`、`googleusercontent.com` 等全量域名）。
+本规则集结合了官方网络部署架构规范与三套工业级主流配置（包含 Mojie 机场底层网络抓包成果），完成全维度提纯与收录：
 
-**那为什么不直接使用通用的 Google 规则，或者为什么本规则集不包含上述大域名？**
-
-1. **解决地区限制冲突（核心目的）**：
-   * **日常 Google 服务（YouTube、Google 搜索、Gmail）**：在香港 (HK)、台湾 (TW) 等低延迟节点体验最好，秒开 4K 视频。
-   * **Antigravity / Gemini 服务**：Google 对 AI 服务有严格的地域风控，**香港节点通常直接提示“不支持该国家/地区”**，必须精准送往**美国 (US) 或特定支持节点**。
-2. **避免“过度代理”，保护日常网络体验**：
-   * Clash 的规则匹配逻辑是**自上而下匹配**，置顶的规则优先拦截。
-   * 如果在 AI 专用规则里写了宽泛的 `DOMAIN-SUFFIX,googleapis.com` 或 `gstatic.com`，会导致你看 YouTube 视频流、网页字体、Chrome 同步等全部公共流量都被**强行绑架到速度较慢的 AI 节点**。
-3. **本规则集的设计哲学——精准剥离**：
-   * **只精准提取** Antigravity 和 Gemini 专属的模型推理接口、动态灰度端点（如 `antigravity-unleash.goog`）和 Cloud Code 协同管道；
-   * 确保日常 YouTube / 搜索继续顺畅滑落到下方的通用 Google 规则（走快速香港节点），唯独 Antigravity / Gemini 精准命中专用组（走美国节点）。
+1. **Antigravity 专有环境与灰度下发**：
+   * `antigravity.google`、`antigravity-unleash.goog`（Unleash 动态特性配置下发）
+2. **Google 最新自主编码 Agent 矩阵**：
+   * `jules.google`、`jules.google.com`（Google 官方首个 GitHub 异步 AI 工程师 Agent）
+   * `cloudcode-pa`、`daily-cloudcode-pa`、`aicode.googleapis.com`（AI 编程协同长连接）
+3. **Google 内部绝密级微服务代号接口（防报错核心）**：
+   * **Geller** (`geller-pa.googleapis.com`)：长对话历史记忆与上下文注入服务
+   * **Robin** (`robinfrontend-pa.googleapis.com`)：多模态交互与实时语音前端通道
+   * **AIDA** (`aida.googleapis.com`)：统一 AI 推理直连底层网关
+   * **AI Sandbox** (`aisandbox-pa.googleapis.com`)：代码执行沙盒（用于 Gemini 运行 Python、绘图及分析数据）
+   * **WebChannel** (`webchannel-alkalimakersuite-pa`)：全双工长轮询通信，保证打字流式输出不中断
+4. **精细化 CDN 加速**：
+   * 采用 `gemini.gstatic.com` 精准加速静态资源，**坚决不引入通用的 `gstatic.com`**，绝不污染 YouTube、Google 搜索等基础低延迟流量。
 
 ---
 
@@ -30,28 +32,24 @@ https://testingcf.jsdelivr.net/gh/Floatingcloud01/clash-rules-antigravity@main/a
 
 ---
 
-## 🛠️ 在 Clash 中引用示例
+## 🛠️ 在 Clash 扩展脚本中引用
 
-### 1. 添加到 `rule-providers`
-```yaml
-rule-providers:
-  antigravity:
-    type: http
-    behavior: classical
-    url: "https://testingcf.jsdelivr.net/gh/Floatingcloud01/clash-rules-antigravity@main/antigravity.yaml"
-    path: ./ruleset/antigravity.yaml
-    interval: 86400
-```
+```javascript
+// rule-providers 中添加：
+antigravity: {
+  type: "http",
+  behavior: "classical",
+  url: "https://testingcf.jsdelivr.net/gh/Floatingcloud01/clash-rules-antigravity@main/antigravity.yaml",
+  path: "./ruleset/antigravity.yaml",
+  interval: 86400
+}
 
-### 2. 添加到 `rules`（建议置顶）
-```yaml
-rules:
-  - RULE-SET,antigravity,🤖 AI专用
-  # 放在你的通用 Google 规则上方
+// rules 中置顶引用：
+"RULE-SET,antigravity,🤖 AI专用"
 ```
 
 ---
 
-## 📌 使用建议
-* **建议开启 TUN 模式**：Antigravity 调用的后台多进程 Agent 及 CLI 命令可能不遵循系统 HTTP 代理，开启 TUN 虚拟网卡接管可保证 100% 规则分流生效。
-* **策略组节点推荐**：建议为「🤖 AI专用」策略组绑定高质量**美国 (US)** 节点。
+## 💡 使用建议
+* **TUN 模式**：建议开启 Clash 的 TUN 虚拟网卡模式，确保后台多进程 Agent 及终端 CLI 流量全部被接管。
+* **节点推荐**：建议为「🤖 AI专用」策略组配置高质量的**美国 (US)** 落地节点，以获得最完整无限制的体验。
