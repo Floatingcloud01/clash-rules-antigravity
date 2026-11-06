@@ -8,6 +8,9 @@
 DOMAIN-SUFFIX,antigravity.google
 DOMAIN-SUFFIX,antigravity-unleash.goog
 DOMAIN,antigravity-unleash.goog
+# Jetski: Antigravity 内部全双工通信与云端 Relay 端点
+DOMAIN,jetski-webchannel.googleapis.com
+DOMAIN-SUFFIX,jetski-webchannel.googleapis.com
 
 # 2. Google Jules (自主 AI 软件工程师 Agent)
 DOMAIN-SUFFIX,jules.google
@@ -22,16 +25,12 @@ DOMAIN,aicode.googleapis.com
 DOMAIN-SUFFIX,aicode.googleapis.com
 
 # 4. Google 内部绝密级 AI 微服务代号接口 (核心防断连/防报错)
-# Geller: 用户个性化、长对话记忆与上下文注入服务
 DOMAIN,geller-pa.googleapis.com
 DOMAIN-SUFFIX,geller-pa.googleapis.com
-# Robin: 多模态语音交互前端管道
 DOMAIN,robinfrontend-pa.googleapis.com
 DOMAIN-SUFFIX,robinfrontend-pa.googleapis.com
-# AIDA: Google 统一 AI 推理直连核心网关
 DOMAIN,aida.googleapis.com
 DOMAIN-SUFFIX,aida.googleapis.com
-# AI Sandbox: 代码沙盒执行环境
 DOMAIN,aisandbox-pa.googleapis.com
 DOMAIN-SUFFIX,aisandbox-pa.googleapis.com
 

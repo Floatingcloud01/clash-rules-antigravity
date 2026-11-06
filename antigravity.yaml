@@ -12,6 +12,9 @@ payload:
   - DOMAIN-SUFFIX,antigravity.google
   - DOMAIN-SUFFIX,antigravity-unleash.goog
   - DOMAIN,antigravity-unleash.goog
+  # Jetski: Antigravity 内部全双工通信与云端 Relay 端点 (实测抓包核心端点)
+  - DOMAIN,jetski-webchannel.googleapis.com
+  - DOMAIN-SUFFIX,jetski-webchannel.googleapis.com
 
   # ------------------------------------------------------------------
   # 2. Google Jules (全新自主 AI 软件工程师 Agent)
